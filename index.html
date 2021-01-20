@@ -147,6 +147,83 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://oneyoung.top/2021/01/20/Spring-Bean-%E6%B3%A8%E8%A7%A3%E6%B3%A8%E5%85%A5%E5%91%BD%E5%90%8D%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="oneyoung">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无涯">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/20/Spring-Bean-%E6%B3%A8%E8%A7%A3%E6%B3%A8%E5%85%A5%E5%91%BD%E5%90%8D%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" class="post-title-link" itemprop="url">Spring Bean 注解注入命名源码分析</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-20 22:25:09 / 修改时间：22:25:56" itemprop="dateCreated datePublished" datetime="2021-01-20T22:25:09+08:00">2021-01-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上篇文章讲到了XML配置方式在不指定<code>ID</code>的情况下，Spring的<code>BeanName</code>。今天来谈论下，现代Spring中Bean注册使用最多的方式—<code>注解</code>。注解方式生成的<code>BeanName</code>策略又是怎样的呢。</p>
+<h2 id="Spring-常用注册Bean注解"><a href="#Spring-常用注册Bean注解" class="headerlink" title="Spring 常用注册Bean注解"></a>Spring 常用注册Bean注解</h2><ul>
+<li><code>@Component</code>、<code>@Service</code>、<code>@Repository</code>、<code>@Controller</code> 这四个注解用于类上，实质上是一样的，能够注册当前类到容器，<code>value</code>属性就是<code>BeanName</code></li>
+<li><code>@Configuration</code>这个注解同样用作类上，不同的是，这个注解通常与<code>@Bean</code>配合使用，注册方法的返回类型对象，用作配置。</li>
+<li><code>@Bean</code> 用于方法上，该方法需要在<code>@Configuration</code>标注的类里面，且方法必须为<code>public</code></li>
+</ul>
+<h2 id="AnnotationBeanNameGenerator"><a href="#AnnotationBeanNameGenerator" class="headerlink" title="AnnotationBeanNameGenerator"></a>AnnotationBeanNameGenerator</h2><p><code>@Component</code>、<code>@Service</code>、<code>@Repository</code>、<code>@Controller</code> 、<code>@Configuration</code></p>
+<p>这五个注解注册的Bean名称都由<code>AnnotationBeanNameGenerator</code>生成</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnnotationBeanNameGenerator</span> <span class="keyword">implements</span> <span class="title">BeanNameGenerator</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">  * A convenient constant for a default &#123;<span class="doctag">@code</span> AnnotationBeanNameGenerator&#125; instance,</span></span><br><span class="line"><span class="comment">  * as used for component scanning purposes.</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@since</span> 5.2</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> AnnotationBeanNameGenerator INSTANCE = <span class="keyword">new</span> AnnotationBeanNameGenerator();</span><br><span class="line"></span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String COMPONENT_ANNOTATION_CLASSNAME = <span class="string">&quot;org.springframework.stereotype.Component&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> String <span class="title">generateBeanName</span><span class="params">(BeanDefinition definition, BeanDefinitionRegistry registry)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (definition <span class="keyword">instanceof</span> AnnotatedBeanDefinition) &#123;</span><br><span class="line">   String beanName = determineBeanNameFromAnnotation((AnnotatedBeanDefinition) definition);</span><br><span class="line">   <span class="keyword">if</span> (StringUtils.hasText(beanName)) &#123;</span><br><span class="line">    <span class="comment">// Explicit bean name found.</span></span><br><span class="line">    <span class="keyword">return</span> beanName;</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// Fallback: generate a unique default bean name.</span></span><br><span class="line">  <span class="keyword">return</span> buildDefaultBeanName(definition, registry);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该生成器同样实现了父类<code>BeanNameGenerator</code>的<code>generateBeanName</code>方法，与默认实现不同的是没有委托给其它类实现功能，而在自身实现，同样存在一个单列对象。</p>
+<p>可以看到命名逻辑先是从注解的元信息获取配置的<code>BeanName</code>,在获取不到的情况下回去调用<code>buildDefaultBeanName</code>生成一个名称。</p>
+<p>下面我们看下生成逻辑</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Derive a default bean name from the given bean definition.</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;The default implementation delegates to &#123;<span class="doctag">@link</span> #buildDefaultBeanName(BeanDefinition)&#125;.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> definition the bean definition to build a bean name for</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> registry the registry that the given bean definition is being registered with</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> the default bean name (never &#123;<span class="doctag">@code</span> null&#125;)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> String <span class="title">buildDefaultBeanName</span><span class="params">(BeanDefinition definition, BeanDefinitionRegistry registry)</span> </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> buildDefaultBeanName(definition);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Derive a default bean name from the given bean definition.</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;The default implementation simply builds a decapitalized version</span></span><br><span class="line"><span class="comment"> * of the short class name: e.g. &quot;mypackage.MyJdbcDao&quot; -&gt; &quot;myJdbcDao&quot;.</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;Note that inner classes will thus have names of the form</span></span><br><span class="line"><span class="comment"> * &quot;outerClassName.InnerClassName&quot;, which because of the period in the</span></span><br><span class="line"><span class="comment"> * name may be an issue if you are autowiring by name.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> definition the bean definition to build a bean name for</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> the default bean name (never &#123;<span class="doctag">@code</span> null&#125;)</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> String <span class="title">buildDefaultBeanName</span><span class="params">(BeanDefinition definition)</span> </span>&#123;</span><br><span class="line"> String beanClassName = definition.getBeanClassName();</span><br><span class="line"> Assert.state(beanClassName != <span class="keyword">null</span>, <span class="string">&quot;No bean class name set&quot;</span>);</span><br><span class="line"> String shortClassName = ClassUtils.getShortName(beanClassName);</span><br><span class="line"> <span class="keyword">return</span> Introspector.decapitalize(shortClassName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>该方法委托给另外一个重载方法实现，先获取该Bean的<code>ClassName</code>,然后获取短的命称，即类名，最后<code>decapitalize</code>把类名首字母变为小写。</p>
+<p>使用采用这种方式生成的<code>BeanName</code>就是类名首字母小写。例如<code>com.oneyoung.User -&gt; user</code></p>
+<h2 id="Bean-名称生成策略"><a href="#Bean-名称生成策略" class="headerlink" title="@Bean 名称生成策略"></a>@Bean 名称生成策略</h2><p>使用<code>@Bean</code>方式注册到容器的命名方式与上面有所不同。</p>
+<p>加载实现类是<code>ConfigurationClassBeanDefinitionReader</code>专门用来处理配置类的Bean</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">AnnotationAttributes bean = AnnotationConfigUtils.attributesFor(metadata, Bean.class);</span><br><span class="line">Assert.state(bean != <span class="keyword">null</span>, <span class="string">&quot;No @Bean annotation attributes&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Consider name and any aliases</span></span><br><span class="line">List&lt;String&gt; names = <span class="keyword">new</span> ArrayList&lt;&gt;(Arrays.asList(bean.getStringArray(<span class="string">&quot;name&quot;</span>)));</span><br><span class="line">String beanName = (!names.isEmpty() ? names.remove(<span class="number">0</span>) : methodName);</span><br></pre></td></tr></table></figure>
+<p>这部分代码可以看出，先去注解的value配置，如果为空则取方法名。所以默认的<code>beanName</code>就是方法名。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://oneyoung.top/2021/01/19/Spring-Bean-%E5%91%BD%E5%90%8D%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -178,7 +255,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-20 00:12:14" itemprop="dateModified" datetime="2021-01-20T00:12:14+08:00">2021-01-20</time>
+                <time title="修改时间：2021-01-20 22:25:55" itemprop="dateModified" datetime="2021-01-20T22:25:55+08:00">2021-01-20</time>
               </span>
 
           
@@ -927,7 +1004,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
