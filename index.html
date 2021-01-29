@@ -251,7 +251,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-01-29 16:07:20 / 修改时间：19:57:08" itemprop="dateCreated datePublished" datetime="2021-01-29T16:07:20+08:00">2021-01-29</time>
+              <time title="创建时间：2021-01-29 16:07:20 / 修改时间：23:33:45" itemprop="dateCreated datePublished" datetime="2021-01-29T16:07:20+08:00">2021-01-29</time>
             </span>
 
           
@@ -270,6 +270,42 @@
 <p>这里我就直接翻译JDK源码注释了，其实注释讲得很详细了。</p>
 </blockquote>
 <p>基于哈希表的Map接口的实现。 此实现提供所有可选的映射操作，并允许空值和空键。 （ HashMap类与Hashtable大致等效，不同之处在于它是不同步的，并且允许为null。）此类不保证映射的顺序。 特别是，它不能保证顺序会随着时间的推移保持恒定。<br>假设哈希函数将元素正确分散在存储桶中，则此实现为基本操作（ get和put ）提供恒定时间(这里指时间复杂度为o1)的性能。 集合视图上的迭代所需的时间与HashMap实例的“容量”（存储桶数）及其大小（键-值映射数）成正比。 因此，如果迭代性能很重要，则不要将初始容量设置得过高（或负载因数过低），这一点非常重要。<br>HashMap的实例具有两个影响其性能的参数：初始容量和负载因子。 容量是哈希表中存储桶的数量，初始容量只是创建哈希表时的容量。 负载因子是在自动增加其哈希表容量之前允许哈希表获得的满度的度量。 当哈希表中的条目数超过负载因子和当前容量的乘积时，哈希表将被重新哈希（即，内部数据结构将被重建），因此哈希表的存储桶数约为两倍。<br>通常，默认负载因子（.75）在时间和空间成本之间提供了一个很好的权衡。 较高的值会减少空间开销，但会增加查找成本（在HashMap类的大多数操作中都得到体现，包括get和put ）。 设置其初始容量时，应考虑映射中的预期条目数及其负载因子，以最大程度地减少重新哈希操作的次数。 如果初始容量大于最大条目数除以负载因子，则将不会发生任何哈希操作。<br>如果将许多映射存储在HashMap实例中，则创建具有足够大容量的映射将比让其根据需要增长表的自动重新哈希处理更有效地存储映射。 请注意，使用具有相同hashCode()许多键是降低任何哈希表性能的肯定方法。 为了改善影响，当键为Comparable ，此类可以使用键之间的比较顺序来帮助打破平局。<br>请注意，此实现未同步。 如果多个线程同时访问哈希映射，并且至少有一个线程在结构上修改该映射，则必须在外部进行同步。 （结构修改是添加或删除一个或多个映射的任何操作；仅更改与实例已经包含的键相关联的值不是结构修改。）通常通过在自然封装了Map的某个对象上进行同步来实现。 。 如果不存在这样的对象，则应使用Collections.synchronizedMap方法“包装”Map。 最好在创建时完成此操作，以防止意外不同步地访问Map：<br>     Map m = Collections.synchronizedMap(new HashMap(…));<br>该类的所有“集合视图方法”返回的迭代器都是快速失败的：如果在创建迭代器后的任何ff时间以任何方式对Map进行结构修改，则除了通过迭代器自己的remove方法之外，迭代器都会抛出ConcurrentModificationException 。 因此，面对并发修改，迭代器会快速干净地失败，而不会在未来的不确定时间冒着任意，不确定的行为的风险。<br>请注意，迭代器的快速失败行为无法得到保证，因为通常来说，在存在不同步的并发修改的情况下，不可能做出任何严格的保证。 快速失败的迭代器会尽最大努力抛出ConcurrentModificationException 。 因此，编写依赖于此异常的程序的正确性是错误的：迭代器的快速失败行为应仅用于检测错误。<br>此类是Java Collections Framework的成员</p>
+<h2 id="几个重要的成员变量"><a href="#几个重要的成员变量" class="headerlink" title="几个重要的成员变量"></a>几个重要的成员变量</h2><ul>
+<li><code>Node&lt;K,V&gt;[]  table </code>  核心数据结构 数组 + 链表</li>
+<li><code>int size</code> 集合的大小</li>
+<li><code>int modCount</code> 被修改的次数</li>
+<li><code>int threshold</code> 下一个要调整大小的大小值（容量 * 负载因子)</li>
+<li><code>float loadFactor</code> 负载因子</li>
+<li><code>Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet</code> KV集</li>
+</ul>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h3><p><code>HashMap</code> 有多个重载构造方法，但最终都会去掉下面这个构造方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">HashMap</span><span class="params">(<span class="keyword">int</span> initialCapacity, <span class="keyword">float</span> loadFactor)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (initialCapacity &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">&quot;Illegal initial capacity: &quot;</span> +</span><br><span class="line">                                           initialCapacity);</span><br><span class="line">    <span class="keyword">if</span> (initialCapacity &gt; MAXIMUM_CAPACITY)</span><br><span class="line">        initialCapacity = MAXIMUM_CAPACITY;</span><br><span class="line">    <span class="keyword">if</span> (loadFactor &lt;= <span class="number">0</span> || Float.isNaN(loadFactor))</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">&quot;Illegal load factor: &quot;</span> +</span><br><span class="line">                                           loadFactor);</span><br><span class="line">    <span class="keyword">this</span>.loadFactor = loadFactor;</span><br><span class="line">    <span class="keyword">this</span>.threshold = tableSizeFor(initialCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有两个参数</p>
+<ul>
+<li>initialCapacity 初始容量</li>
+<li>loadFactor 负载因子</li>
+</ul>
+<p><code>HashMap</code>就是对<code>散列表</code>这种数据结构的实现，所以需要这个两个参数去定义<code>散列表</code></p>
+<h3 id="tableSizeFor"><a href="#tableSizeFor" class="headerlink" title="tableSizeFor"></a>tableSizeFor</h3><p>我们从上面的构造方法可以看出，<code>HashMap</code>在初始化的时候，会调用这个方法去计算实际初始化的容量并暂存为<code>threshold</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Returns a power of two size for the given target capacity.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">tableSizeFor</span><span class="params">(<span class="keyword">int</span> cap)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = cap - <span class="number">1</span>;</span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">1</span>;</span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">2</span>;</span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">4</span>;</span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">8</span>;</span><br><span class="line">    n |= n &gt;&gt;&gt; <span class="number">16</span>;</span><br><span class="line">    <span class="keyword">return</span> (n &lt; <span class="number">0</span>) ? <span class="number">1</span> : (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个方法返回<strong>大于输入参数且最近的2的整数次幂的数</strong>。比如10，则返回16。</p>
+<p>先来分析有关n位操作部分：先来假设n的二进制为01xxx…xxx。接着</p>
+<ul>
+<li><p>对n右移1位：001xx…xxx，再位或：011xx…xxx</p>
+</li>
+<li><p>对n右移2为：00011…xxx，再位或：01111…xxx</p>
+</li>
+<li><p>此时前面已经有四个1了，再右移4位且位或可得8个1</p>
+</li>
+<li><p>同理，有8个1，右移8位肯定会让后八位也为1。</p>
+</li>
+</ul>
+<p>综上可得，该算法让最高位的1后面的位全变为1。</p>
+<p>最后再让结果n+1，即得到了2的整数次幂的值了。</p>
+<p>现在回来看看第一条语句：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n = cap - <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<p>让<code>cap - 1</code>再赋值给n的目的是另找到的目标值大于或<strong>等于</strong>原值。例如二进制1000，十进制数值为8。如果不对它减1而直接操作，将得到答案10000，即16。显然不是结果。减1后二进制为111，再进行操作则会得到原来的数值1000，即8。</p>
+<p>这种方法的效率非常高，可见Java8对容器优化了很多</p>
 
       
     </div>
