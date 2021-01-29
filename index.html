@@ -187,7 +187,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-28 14:55:34" itemprop="dateModified" datetime="2021-01-28T14:55:34+08:00">2021-01-28</time>
+                <time title="修改时间：2021-01-29 15:40:32" itemprop="dateModified" datetime="2021-01-29T15:40:32+08:00">2021-01-29</time>
               </span>
 
           
@@ -207,6 +207,11 @@
 <p>我表示相见恨晚</p>
 <p>附上插件首页</p>
 <p><a target="_blank" rel="noopener" href="https://plugins.jetbrains.com/plugin/10080-rainbow-brackets">https://plugins.jetbrains.com/plugin/10080-rainbow-brackets</a></p>
+<h3 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h3><p>我们来看下这个方法的源码<code>java.util.Map#getOrDefault</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">default</span> V <span class="title">getOrDefault</span><span class="params">(Object key, V defaultValue)</span> </span>&#123;</span><br><span class="line">    V v;</span><br><span class="line">    <span class="keyword">return</span> (((v = get(key)) != <span class="keyword">null</span>) || containsKey(key))</span><br><span class="line">        ? v</span><br><span class="line">        : defaultValue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这括号是不是看得人头都晕掉了，安装彩虹括号后就变得很清晰了</p>
+<p><img src="/IDEA%E6%8F%92%E4%BB%B6-Rainbow-Brackets/image-20210129153934682.png" alt="image-20210129153934682"></p>
+<p>通过颜色标注，关系就很清晰了。</p>
 
       
     </div>
