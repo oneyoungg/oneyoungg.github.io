@@ -20,17 +20,17 @@
     var CONFIG = {"hostname":"oneyoung.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="引入依赖12345&lt;dependency&gt;    &lt;groupId&gt;top.oneyoung&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;oneyoung-i18n-starter&lt;&#x2F;artifactId&gt;    &lt;version&gt;0.0.4&lt;&#x2F;version&gt;&lt;&amp;#x2F">
+  <meta name="description" content="引入依赖12345&lt;dependency&gt;    &lt;groupId&gt;top.oneyoung&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;oneyoung-i18n-starter&lt;&#x2F;artifactId&gt;    &lt;version&gt;0.0.4&lt;&#x2F;version&gt;&lt;&#x2F;dependency&gt; 配置激活">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring-Boot集成oneyoung-i18n">
 <meta property="og:url" content="https://oneyoung.top/Spring-Boot%E9%9B%86%E6%88%90oneyoung-i18n/index.html">
 <meta property="og:site_name" content="无涯">
-<meta property="og:description" content="引入依赖12345&lt;dependency&gt;    &lt;groupId&gt;top.oneyoung&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;oneyoung-i18n-starter&lt;&#x2F;artifactId&gt;    &lt;version&gt;0.0.4&lt;&#x2F;version&gt;&lt;&amp;#x2F">
+<meta property="og:description" content="引入依赖12345&lt;dependency&gt;    &lt;groupId&gt;top.oneyoung&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;oneyoung-i18n-starter&lt;&#x2F;artifactId&gt;    &lt;version&gt;0.0.4&lt;&#x2F;version&gt;&lt;&#x2F;dependency&gt; 配置激活">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://github.com/oneyoungg/i18n-demo/raw/master/image/img.png">
 <meta property="og:image" content="https://github.com/oneyoungg/i18n-demo/raw/master/image/img_2.png">
 <meta property="article:published_time" content="2021-05-31T09:35:17.000Z">
-<meta property="article:modified_time" content="2021-05-31T09:42:44.420Z">
+<meta property="article:modified_time" content="2021-05-31T09:48:19.775Z">
 <meta property="article:author" content="oneyoung">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -188,7 +188,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-31 17:35:17 / 修改时间：17:42:44" itemprop="dateCreated datePublished" datetime="2021-05-31T17:35:17+08:00">2021-05-31</time>
+              <time title="创建时间：2021-05-31 17:35:17 / 修改时间：17:48:19" itemprop="dateCreated datePublished" datetime="2021-05-31T17:35:17+08:00">2021-05-31</time>
             </span>
 
           
@@ -202,9 +202,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;top.oneyoung&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;oneyoung-i18n-starter&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;0.0.4&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+        <h2 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>top.oneyoung<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>oneyoung-i18n-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="配置激活的语言"><a href="#配置激活的语言" class="headerlink" title="配置激活的语言"></a>配置激活的语言</h2><p>默认激活的语言是<code>zh_CN</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">oneyoung.i18n.active&#x3D;en_US</span><br></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">oneyoung.i18n.active</span>=<span class="string">en_US</span></span><br></pre></td></tr></table></figure>
 <p>支持IDEA自动推断 <a target="_blank" rel="noopener" href="https://github.com/oneyoungg/i18n-demo/blob/master/image/img.png"><img src="https://github.com/oneyoungg/i18n-demo/raw/master/image/img.png" alt="img.png"></a> <a target="_blank" rel="noopener" href="https://github.com/oneyoungg/i18n-demo/blob/master/image/img_2.png"><img src="https://github.com/oneyoungg/i18n-demo/raw/master/image/img_2.png" alt="img_2.png"></a></p>
 <h2 id="添加错误码配置文件"><a href="#添加错误码配置文件" class="headerlink" title="添加错误码配置文件"></a>添加错误码配置文件</h2><p><code>src/main/resources/i18n/errors_en_US.properties</code> en_US</p>
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">ONEYOUNG-EXCEPTION</span>=<span class="string">oneyoung demo exception</span></span><br></pre></td></tr></table></figure>
