@@ -156,6 +156,75 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://oneyoung.top/Spring-Boot%E9%9B%86%E6%88%90oneyoung-i18n/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="oneyoung">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无涯">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/Spring-Boot%E9%9B%86%E6%88%90oneyoung-i18n/" class="post-title-link" itemprop="url">Spring-Boot集成oneyoung-i18n`</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-31 17:35:17 / 修改时间：17:37:01" itemprop="dateCreated datePublished" datetime="2021-05-31T17:35:17+08:00">2021-05-31</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;top.oneyoung&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;oneyoung-i18n-starter&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;0.0.4&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="配置激活的语言"><a href="#配置激活的语言" class="headerlink" title="配置激活的语言"></a>配置激活的语言</h2><p>默认激活的语言是<code>zh_CN</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">oneyoung.i18n.active&#x3D;en_US</span><br></pre></td></tr></table></figure>
+<p>支持IDEA自动推断 <a target="_blank" rel="noopener" href="https://github.com/oneyoungg/i18n-demo/blob/master/image/img.png"><img src="https://github.com/oneyoungg/i18n-demo/raw/master/image/img.png" alt="img.png"></a> <a target="_blank" rel="noopener" href="https://github.com/oneyoungg/i18n-demo/blob/master/image/img_2.png"><img src="https://github.com/oneyoungg/i18n-demo/raw/master/image/img_2.png" alt="img_2.png"></a></p>
+<h2 id="添加错误码配置文件"><a href="#添加错误码配置文件" class="headerlink" title="添加错误码配置文件"></a>添加错误码配置文件</h2><p><code>src/main/resources/i18n/errors_en_US.properties</code> en_US</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">ONEYOUNG-EXCEPTION</span>=<span class="string">oneyoung demo exception</span></span><br></pre></td></tr></table></figure>
+<p><code>src/main/resources/i18n/errors_zh_CN.properties</code> zh_CN</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">ONEYOUNG-EXCEPTION</span>=<span class="string">oneyoung demo 测试异常</span></span><br></pre></td></tr></table></figure>
+<p>目前暂支持两种语言，后续会继续开发更灵活的配置方式，支持多种语言</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="获取默认激活语言的message"><a href="#获取默认激活语言的message" class="headerlink" title="获取默认激活语言的message"></a>获取默认激活语言的message</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ErrorMessage.of(<span class="string">&quot;ONEYOUNG-EXCEPTION&quot;</span>).getMessage();</span><br></pre></td></tr></table></figure>
+<h3 id="获取指定语言的message"><a href="#获取指定语言的message" class="headerlink" title="获取指定语言的message"></a>获取指定语言的message</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ErrorMessage.of(Locale.CHINA,<span class="string">&quot;ONEYOUNG-EXCEPTION&quot;</span>).getMessage();</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://oneyoung.top/Java%E5%B9%B6%E5%8F%91%E6%A1%86%E6%9E%B6%E4%B9%8B-%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1240,380 +1309,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://oneyoung.top/Elasticsearch-Guide/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="oneyoung">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="无涯">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Elasticsearch-Guide/" class="post-title-link" itemprop="url">Elasticsearch Guide</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-12-28 10:15:49 / 修改时间：12:19:46" itemprop="dateCreated datePublished" datetime="2020-12-28T10:15:49+08:00">2020-12-28</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Elasticsearch-introduction"><a href="#Elasticsearch-introduction" class="headerlink" title="Elasticsearch introduction"></a><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/elasticsearch-intro.html">Elasticsearch introduction</a></h1><h2 id="Index-some-documents"><a href="#Index-some-documents" class="headerlink" title="Index some documents"></a><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/getting-started-index.html">Index some documents</a></h2><p>集群启动并运行后，您就可以为一些数据建立索引了。 Elasticsearch有多种摄取选项，但最终它们都做同样的事情：将JSON文档放入Elasticsearch索引中。</p>
-<p>您可以使用简单的PUT请求直接执行此操作，该请求指定要添加文档的索引，唯一的文档ID，以及请求正文中的一个或多个<code>&quot;field&quot;</code>: <code>&quot;value&quot;</code>对：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PUT /customer/_doc/1</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;John Doe&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>该请求（如果尚不存在）将自动创建<code>customer</code>索引，添加ID为<code>1</code>的新文档，并存储<code>name</code>字段并为其建立索引。</p>
-<p>由于这是一个新document，因此响应显示该操作的结果是创建了该document的版本1：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;_index&quot;</span> : <span class="string">&quot;customer&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;_type&quot;</span> : <span class="string">&quot;_doc&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;_id&quot;</span> : <span class="string">&quot;1&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;_version&quot;</span> : <span class="number">1</span>,</span><br><span class="line">  <span class="attr">&quot;result&quot;</span> : <span class="string">&quot;created&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;_shards&quot;</span> : &#123;</span><br><span class="line">    <span class="attr">&quot;total&quot;</span> : <span class="number">2</span>,</span><br><span class="line">    <span class="attr">&quot;successful&quot;</span> : <span class="number">1</span>,</span><br><span class="line">    <span class="attr">&quot;failed&quot;</span> : <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;_seq_no&quot;</span> : <span class="number">0</span>,</span><br><span class="line">  <span class="attr">&quot;_primary_term&quot;</span> : <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以从群集中的任何节点立即获得新文档。您可以使用指定其文档ID的GET请求检索它：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /customer/_doc/1</span><br></pre></td></tr></table></figure>
-<p>该响应表明找到了具有指定ID的document，并显示了已建立索引的原始源字段。</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;_index&quot;</span> : <span class="string">&quot;customer&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;_type&quot;</span> : <span class="string">&quot;_doc&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;_id&quot;</span> : <span class="string">&quot;1&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;_version&quot;</span> : <span class="number">1</span>,</span><br><span class="line">  <span class="attr">&quot;_seq_no&quot;</span> : <span class="number">0</span>,</span><br><span class="line">  <span class="attr">&quot;_primary_term&quot;</span> : <span class="number">1</span>,</span><br><span class="line">  <span class="attr">&quot;found&quot;</span> : <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">&quot;_source&quot;</span> : &#123;</span><br><span class="line">    <span class="attr">&quot;name&quot;</span> : <span class="string">&quot;John Doe&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果要索引的文档很多，则可以使用<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/docs-bulk.html">bulk API</a>批量提交它们。 使用批量处理批处理文档操作比单独提交请求要快得多，因为它可以最大程度地减少网络往返次数。</p>
-<p>最佳批处理大小取决于许多因素：文档大小和复杂性，索引编制和搜索负载以及群集可用的资源。 一个好的起点是批处理1,000至5,000个文档，总有效负载在5MB至15MB之间。 从那里，您可以尝试找到最佳位置。</p>
-<p>要将一些数据导入Elasticsearch，您可以开始搜索和分析：</p>
-<ol>
-<li><p>下载<a target="_blank" rel="noopener" href="https://github.com/elastic/elasticsearch/blob/master/docs/src/test/resources/accounts.json?raw=true"><code>accounts.json</code></a>示例数据集。 此随机生成的数据集中的文档代表具有以下信息的用户帐户：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;account_number&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">&quot;balance&quot;</span>: <span class="number">16623</span>,</span><br><span class="line">    <span class="attr">&quot;firstname&quot;</span>: <span class="string">&quot;Bradshaw&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;lastname&quot;</span>: <span class="string">&quot;Mckenzie&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;age&quot;</span>: <span class="number">29</span>,</span><br><span class="line">    <span class="attr">&quot;gender&quot;</span>: <span class="string">&quot;F&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;address&quot;</span>: <span class="string">&quot;244 Columbus Place&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;employer&quot;</span>: <span class="string">&quot;Euron&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;email&quot;</span>: <span class="string">&quot;bradshawmckenzie@euron.com&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;city&quot;</span>: <span class="string">&quot;Hobucken&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;state&quot;</span>: <span class="string">&quot;CO&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>使用以下_bulk请求将帐户数据索引到银行索引中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -H &quot;Content-Type: application&#x2F;json&quot; -XPOST &quot;localhost:9200&#x2F;bank&#x2F;_bulk?pretty&amp;refresh&quot; --data-binary &quot;@accounts.json&quot;</span><br><span class="line">curl &quot;localhost:9200&#x2F;_cat&#x2F;indices?v&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>响应表明成功索引了1,000个文档。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">health status index uuid                   pri rep docs.count docs.deleted store.size pri.store.size</span><br><span class="line">yellow open   bank  l7sSYV2cQXmu6_4rJWVIww   5   1       1000            0    128.6kb        128.6kb</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ol>
-<h2 id="Start-searching"><a href="#Start-searching" class="headerlink" title="Start searching"></a><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/getting-started-search.html">Start searching</a></h2><p>将一些数据摄取到Elasticsearch索引后，您可以通过将请求发送到<code>_search</code>端点来进行搜索。要访问全套搜索功能，请使用Elasticsearch Query DSL在请求正文中指定搜索条件。您可以在请求URI中指定要搜索的索引的名称。</p>
-<p>例如，以下请求将检索<code>bank</code>索引中按帐号排序的所有文档：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;bank&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123; &quot;match_all&quot;: &#123;&#125; &#125;,</span><br><span class="line">  &quot;sort&quot;: [</span><br><span class="line">    &#123; &quot;account_number&quot;: &quot;asc&quot; &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>默认情况下，响应的<code>hit</code>部分包括符合搜索条件的前10个文档：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;took&quot;</span> : <span class="number">63</span>,</span><br><span class="line">  <span class="attr">&quot;timed_out&quot;</span> : <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">&quot;_shards&quot;</span> : &#123;</span><br><span class="line">    <span class="attr">&quot;total&quot;</span> : <span class="number">5</span>,</span><br><span class="line">    <span class="attr">&quot;successful&quot;</span> : <span class="number">5</span>,</span><br><span class="line">    <span class="attr">&quot;skipped&quot;</span> : <span class="number">0</span>,</span><br><span class="line">    <span class="attr">&quot;failed&quot;</span> : <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;hits&quot;</span> : &#123;</span><br><span class="line">    <span class="attr">&quot;total&quot;</span> : &#123;</span><br><span class="line">        <span class="attr">&quot;value&quot;</span>: <span class="number">1000</span>,</span><br><span class="line">        <span class="attr">&quot;relation&quot;</span>: <span class="string">&quot;eq&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;max_score&quot;</span> : <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">&quot;hits&quot;</span> : [ &#123;</span><br><span class="line">      <span class="attr">&quot;_index&quot;</span> : <span class="string">&quot;bank&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;_type&quot;</span> : <span class="string">&quot;_doc&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;_id&quot;</span> : <span class="string">&quot;0&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;sort&quot;</span>: [<span class="number">0</span>],</span><br><span class="line">      <span class="attr">&quot;_score&quot;</span> : <span class="literal">null</span>,</span><br><span class="line">      <span class="attr">&quot;_source&quot;</span> : &#123;<span class="attr">&quot;account_number&quot;</span>:<span class="number">0</span>,<span class="attr">&quot;balance&quot;</span>:<span class="number">16623</span>,<span class="attr">&quot;firstname&quot;</span>:<span class="string">&quot;Bradshaw&quot;</span>,<span class="attr">&quot;lastname&quot;</span>:<span class="string">&quot;Mckenzie&quot;</span>,<span class="attr">&quot;age&quot;</span>:<span class="number">29</span>,<span class="attr">&quot;gender&quot;</span>:<span class="string">&quot;F&quot;</span>,<span class="attr">&quot;address&quot;</span>:<span class="string">&quot;244 Columbus Place&quot;</span>,<span class="attr">&quot;employer&quot;</span>:<span class="string">&quot;Euron&quot;</span>,<span class="attr">&quot;email&quot;</span>:<span class="string">&quot;bradshawmckenzie@euron.com&quot;</span>,<span class="attr">&quot;city&quot;</span>:<span class="string">&quot;Hobucken&quot;</span>,<span class="attr">&quot;state&quot;</span>:<span class="string">&quot;CO&quot;</span>&#125;</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      <span class="attr">&quot;_index&quot;</span> : <span class="string">&quot;bank&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;_type&quot;</span> : <span class="string">&quot;_doc&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;_id&quot;</span> : <span class="string">&quot;1&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;sort&quot;</span>: [<span class="number">1</span>],</span><br><span class="line">      <span class="attr">&quot;_score&quot;</span> : <span class="literal">null</span>,</span><br><span class="line">      <span class="attr">&quot;_source&quot;</span> : &#123;<span class="attr">&quot;account_number&quot;</span>:<span class="number">1</span>,<span class="attr">&quot;balance&quot;</span>:<span class="number">39225</span>,<span class="attr">&quot;firstname&quot;</span>:<span class="string">&quot;Amber&quot;</span>,<span class="attr">&quot;lastname&quot;</span>:<span class="string">&quot;Duke&quot;</span>,<span class="attr">&quot;age&quot;</span>:<span class="number">32</span>,<span class="attr">&quot;gender&quot;</span>:<span class="string">&quot;M&quot;</span>,<span class="attr">&quot;address&quot;</span>:<span class="string">&quot;880 Holmes Lane&quot;</span>,<span class="attr">&quot;employer&quot;</span>:<span class="string">&quot;Pyrami&quot;</span>,<span class="attr">&quot;email&quot;</span>:<span class="string">&quot;amberduke@pyrami.com&quot;</span>,<span class="attr">&quot;city&quot;</span>:<span class="string">&quot;Brogan&quot;</span>,<span class="attr">&quot;state&quot;</span>:<span class="string">&quot;IL&quot;</span>&#125;</span><br><span class="line">    &#125;, ...</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>该响应还提供有关搜索请求的以下信息：</p>
-<ul>
-<li><code>took</code> – Elasticsearch运行查询所需的时间（以毫秒为单位）</li>
-<li><code>timed_out</code> – 搜索请求是否超时</li>
-<li><code>_shards</code> – 搜索了多少个分片以及成功，失败或跳过了多少个分片。or were skipped.</li>
-<li><code>max_score</code> – 找到最相关文件的分数</li>
-<li><code>hits.total.value</code> - 找到多少个匹配的文档</li>
-<li><code>hits.sort</code> - 文档的排序位置（不按相关性得分排序时）</li>
-<li><code>hits._score</code> - 文档的相关性得分（使用<code>match_all</code>时不适用）</li>
-</ul>
-<p>每个搜索请求都是独立的：Elasticsearch在请求中不维护任何状态信息。要翻阅搜索结果，请在请求中指定from和size参数。</p>
-<p>例如，以下请求的匹配数为10到19：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;bank&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123; &quot;match_all&quot;: &#123;&#125; &#125;,</span><br><span class="line">  &quot;sort&quot;: [</span><br><span class="line">    &#123; &quot;account_number&quot;: &quot;asc&quot; &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;from&quot;: 10,</span><br><span class="line">  &quot;size&quot;: 10</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>既然您已经了解了如何提交基本的搜索请求，则可以开始构建比<code>match_all</code>有趣的查询。</p>
-<p>要在字段中搜索特定字词，可以使用<code>match</code>查询。例如，以下请求搜索<code>address</code>字段以查找其地址包含<code>mill</code>或<code>land</code>：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;bank&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123; &quot;match&quot;: &#123; &quot;address&quot;: &quot;mill lane&quot; &#125; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>要构造更复杂的查询，可以使用<code>bool</code>查询来组合多个查询条件。您可以根据需要（must match），期望（shhould match）或不期望（must not match）指定条件。</p>
-<p>例如，以下请求在<code>bank</code>索引中搜索属于40岁客户的帐户，但不包括居住在Idaho（ID）的任何人：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;bank&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;bool&quot;: &#123;</span><br><span class="line">      &quot;must&quot;: [</span><br><span class="line">        &#123; &quot;match&quot;: &#123; &quot;age&quot;: &quot;40&quot; &#125; &#125;</span><br><span class="line">      ],</span><br><span class="line">      &quot;must_not&quot;: [</span><br><span class="line">        &#123; &quot;match&quot;: &#123; &quot;state&quot;: &quot;ID&quot; &#125; &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>布尔查询中的每个must，should和must_not元素都称为查询子句。文档满足每个必须或应条款中的标准的程度会提高文档的相关性得分。分数越高，文档就越符合您的搜索条件。默认情况下，Elasticsearch返回按这些相关性分数排名的文档。</p>
-<p>must_not子句中的条件被视为过滤器。它影响文件是否包含在结果中，但不会影响文件的评分方式。您还可以根据结构化数据显式指定任意过滤器以包括或排除文档。</p>
-<p>例如，以下请求使用范围过滤器将结果限制为余额在20,000美元到30,000美元（含）之间的帐户。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;bank&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;bool&quot;: &#123;</span><br><span class="line">      &quot;must&quot;: &#123; &quot;match_all&quot;: &#123;&#125; &#125;,</span><br><span class="line">      &quot;filter&quot;: &#123;</span><br><span class="line">        &quot;range&quot;: &#123;</span><br><span class="line">          &quot;balance&quot;: &#123;</span><br><span class="line">            &quot;gte&quot;: 20000,</span><br><span class="line">            &quot;lte&quot;: 30000</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Analyze-results-with-aggregations"><a href="#Analyze-results-with-aggregations" class="headerlink" title="Analyze results with aggregations"></a><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/getting-started-aggregations.html">Analyze results with aggregations</a></h2><p>Elasticsearch聚合使您能够获取有关搜索结果的元信息，并回答诸如“德克萨斯州有多少个帐户持有人？”或“田纳西州的平均帐户余额是多少？”之类的问题。您可以在一个请求中搜索文档，过滤命中并使用汇总分析结果。</p>
-<p>例如，以下请求使用<code>terms</code>汇总将<code>bank</code>索引中的所有帐户按状态分组，并按降序返回帐户数量最多的十个州：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;bank&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;size&quot;: 0,</span><br><span class="line">  &quot;aggs&quot;: &#123;</span><br><span class="line">    &quot;group_by_state&quot;: &#123;</span><br><span class="line">      &quot;terms&quot;: &#123;</span><br><span class="line">        &quot;field&quot;: &quot;state.keyword&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>响应中的<code>buckets</code>是<code>state</code>字段的值。<code>doc_count</code>显示每个状态下的帐户数。例如，您可以看到<code>ID（爱达荷州）</code>中有27个帐户。因为请求集<code>size=0</code>，所以响应仅包含聚合结果。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;took&quot;: 29,</span><br><span class="line">  &quot;timed_out&quot;: false,</span><br><span class="line">  &quot;_shards&quot;: &#123;</span><br><span class="line">    &quot;total&quot;: 5,</span><br><span class="line">    &quot;successful&quot;: 5,</span><br><span class="line">    &quot;skipped&quot; : 0,</span><br><span class="line">    &quot;failed&quot;: 0</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;hits&quot; : &#123;</span><br><span class="line">     &quot;total&quot; : &#123;</span><br><span class="line">        &quot;value&quot;: 1000,</span><br><span class="line">        &quot;relation&quot;: &quot;eq&quot;</span><br><span class="line">     &#125;,</span><br><span class="line">    &quot;max_score&quot; : null,</span><br><span class="line">    &quot;hits&quot; : [ ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;aggregations&quot; : &#123;</span><br><span class="line">    &quot;group_by_state&quot; : &#123;</span><br><span class="line">      &quot;doc_count_error_upper_bound&quot;: 20,</span><br><span class="line">      &quot;sum_other_doc_count&quot;: 770,</span><br><span class="line">      &quot;buckets&quot; : [ &#123;</span><br><span class="line">        &quot;key&quot; : &quot;ID&quot;,</span><br><span class="line">        &quot;doc_count&quot; : 27</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        &quot;key&quot; : &quot;TX&quot;,</span><br><span class="line">        &quot;doc_count&quot; : 27</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        &quot;key&quot; : &quot;AL&quot;,</span><br><span class="line">        &quot;doc_count&quot; : 25</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        &quot;key&quot; : &quot;MD&quot;,</span><br><span class="line">        &quot;doc_count&quot; : 25</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        &quot;key&quot; : &quot;TN&quot;,</span><br><span class="line">        &quot;doc_count&quot; : 23</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        &quot;key&quot; : &quot;MA&quot;,</span><br><span class="line">        &quot;doc_count&quot; : 21</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        &quot;key&quot; : &quot;NC&quot;,</span><br><span class="line">        &quot;doc_count&quot; : 21</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        &quot;key&quot; : &quot;ND&quot;,</span><br><span class="line">        &quot;doc_count&quot; : 21</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        &quot;key&quot; : &quot;ME&quot;,</span><br><span class="line">        &quot;doc_count&quot; : 20</span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        &quot;key&quot; : &quot;MO&quot;,</span><br><span class="line">        &quot;doc_count&quot; : 20</span><br><span class="line">      &#125; ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>您可以组合聚合以构建更复杂的数据汇总。例如，以下请求在前一个<code>group_by_state</code>聚合内嵌套avg聚合，以计算每个状态的平均帐户余额。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;bank&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;size&quot;: 0,</span><br><span class="line">  &quot;aggs&quot;: &#123;</span><br><span class="line">    &quot;group_by_state&quot;: &#123;</span><br><span class="line">      &quot;terms&quot;: &#123;</span><br><span class="line">        &quot;field&quot;: &quot;state.keyword&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;aggs&quot;: &#123;</span><br><span class="line">        &quot;average_balance&quot;: &#123;</span><br><span class="line">          &quot;avg&quot;: &#123;</span><br><span class="line">            &quot;field&quot;: &quot;balance&quot;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>除了这些基本的存储桶和指标聚合外，Elasticsearch还提供了专门的聚合，用于在多个字段上操作并分析特定类型的数据，例如日期，IP地址和地理数据。您还可以将单个聚合的结果馈送到管道聚合中，以进行进一步分析。</p>
-<p>聚合提供的核心分析功能可启用高级功能，例如使用机器学习来检测异常。</p>
-<h1 id="Mapping"><a href="#Mapping" class="headerlink" title="Mapping"></a>Mapping</h1><p>映射是定义文档及其包含的字段的存储和索引方式的过程。例如，使用映射定义：</p>
-<ul>
-<li>哪些字符串字段应视为全文字段。</li>
-<li>哪些字段包含数字，日期或地理位置。</li>
-<li><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/mapping-date-format.html">format</a> 日期值的格式。</li>
-<li>自定义规则来控制动态添加字段的映射。 <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/dynamic-mapping.html">dynamically added fields</a>.</li>
-</ul>
-<h2 id="Field-datatypes"><a href="#Field-datatypes" class="headerlink" title="Field datatypes"></a>Field datatypes</h2><p>每个字段的数据类型可以是：</p>
-<ul>
-<li>a simple type like <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/text.html"><code>text</code></a>, <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/keyword.html"><code>keyword</code></a>, <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/date.html"><code>date</code></a>, <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/number.html"><code>long</code></a>, <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/number.html"><code>double</code></a>, <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/boolean.html"><code>boolean</code></a> or <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/ip.html"><code>ip</code></a>.</li>
-<li>支持JSON的层次结构性质的类型 <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/object.html"><code>object</code></a> or <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/nested.html"><code>nested</code></a>.</li>
-<li>专业型 <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/geo-point.html"><code>geo_point</code></a>, <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/geo-shape.html"><code>geo_shape</code></a>, or <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/search-suggesters.html#completion-suggester"><code>completion</code></a>.</li>
-</ul>
-<p>为不同的目的以不同的方式对同一字段建立索引通常很有用。例如，可以将<code>string</code>字段索引为全文搜索的<code>text</code>字段，以及作为排序或聚合的<code>keyword</code>字段。另外，您可以使用标准分析器，英语分析器和法语分析器为字符串字段建立索引。</p>
-<p>这是多字段的目的。大多数数据类型通过<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/multi-fields.html"><code>fields</code></a>参数支持多字段。</p>
-<h2 id="Dynamic-mapping（动态映射）"><a href="#Dynamic-mapping（动态映射）" class="headerlink" title="Dynamic mapping（动态映射）"></a>Dynamic mapping（动态映射）</h2><p>字段和映射类型在使用之前不需要定义。通过动态映射，仅通过索引文档即可自动添加新的字段名称。新字段既可以添加到顶级映射类型，也可以添加到内部对象和嵌套字段。<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/object.html"><code>object</code></a> and <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/nested.html"><code>nested</code></a> </p>
-<p>可以将动态映射规则配置为自定义用于新字段的映射。 <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/dynamic-mapping.html">dynamic mapping</a></p>
-<h2 id="使用显式映射创建索引"><a href="#使用显式映射创建索引" class="headerlink" title="使用显式映射创建索引"></a>使用显式映射创建索引</h2><p>您可以使用create index API创建带有显式映射的新索引。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PUT &#x2F;my-index</span><br><span class="line">&#123;</span><br><span class="line">  &quot;mappings&quot;: &#123;</span><br><span class="line">    &quot;properties&quot;: &#123;</span><br><span class="line">      &quot;age&quot;:    &#123; &quot;type&quot;: &quot;integer&quot; &#125;,  </span><br><span class="line">      &quot;email&quot;:  &#123; &quot;type&quot;: &quot;keyword&quot;  &#125;, </span><br><span class="line">      &quot;name&quot;:   &#123; &quot;type&quot;: &quot;text&quot;  &#125;     </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Add-a-field-to-an-existing-mapping"><a href="#Add-a-field-to-an-existing-mapping" class="headerlink" title="Add a field to an existing mapping"></a>Add a field to an existing mapping</h2><p>将字段添加到现有映射 您可以使用放置映射API将一个或多个新字段添加到现有索引。</p>
-<p>下面的示例添加employee-id，这是一个关键字字段，其索引映射参数值为false。这意味着已存储employee-id字段的值，但未编制索引或可用于搜索。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PUT &#x2F;my-index&#x2F;_mapping</span><br><span class="line">&#123;</span><br><span class="line">  &quot;properties&quot;: &#123;</span><br><span class="line">    &quot;employee-id&quot;: &#123;</span><br><span class="line">      &quot;type&quot;: &quot;keyword&quot;,</span><br><span class="line">      &quot;index&quot;: false</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="更新字段的映射"><a href="#更新字段的映射" class="headerlink" title="更新字段的映射"></a>更新字段的映射</h3><p>您不能更改现有字段的映射，但以下情况除外：</p>
-<ul>
-<li>You can add new <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/properties.html">properties</a> to an <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/object.html"><code>object</code></a> field.</li>
-<li>您可以使用字段映射参数来启用多字段。 <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/multi-fields.html"><code>field</code></a> </li>
-<li>您可以更改ignore_above映射参数的值。 <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/ignore-above.html"><code>ignore_above</code></a> </li>
-</ul>
-<p>更改现有字段的映射可能会使已经建立索引的数据无效。如果需要更改字段的映射，请使用正确的映射创建一个新索引，然后将数据重新索引 <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/docs-reindex.html">reindex</a> 到该索引中。如果只想重命名字段，请考虑添加别名 <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/alias.html"><code>alias</code></a> 字段。</p>
-<h2 id="查看索引的映射"><a href="#查看索引的映射" class="headerlink" title="查看索引的映射"></a>查看索引的映射</h2><p>您可以使用get mapping API查看现有索引的映射。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;my-index&#x2F;_mapping</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="Query-DSL"><a href="#Query-DSL" class="headerlink" title="Query DSL"></a>Query DSL</h1><p>Elasticsearch提供了基于JSON的完整查询DSL（特定于域的语言）来定义查询。将查询DSL视为查询的AST（抽象语法树），它由两种子句组成：</p>
-<ul>
-<li><p><strong>Leaf query clauses</strong></p>
-<p>叶子查询子句在特定字段中查找特定值，例如match，term或range查询。这些查询可以自己使用。</p>
-</li>
-<li><p><strong>Compound query clauses</strong></p>
-<p>复合查询子句包装其他叶查询或复合查询，并用于以逻辑方式组合多个查询（例如bool或dis_max查询），或更改其行为（例如constant_score查询）。</p>
-</li>
-</ul>
-<p>查询子句的行为会有所不同，具体取决于它们是在查询上下文中还是在过滤器上下文中使用。 <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-filter-context.html">query context or filter context</a>.</p>
-<h2 id="查询和过滤上下文"><a href="#查询和过滤上下文" class="headerlink" title="查询和过滤上下文"></a>查询和过滤上下文</h2><h3 id="Relevance-scores"><a href="#Relevance-scores" class="headerlink" title="Relevance scores"></a>Relevance scores</h3><p>默认情况下，Elasticsearch按<strong>相关性得分</strong>对匹配的搜索结果进行排序，该得分衡量每个文档与查询的匹配程度。</p>
-<p>相关性分数是一个正浮点数，在<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/search-request-body.html">search</a>API的_score元字段中返回。 _score越高，文档越相关。虽然每种查询类型可以不同地计算相关性分数，但是分数计算还取决于查询子句是在查询上下文中还是在过滤器上下文中运行。</p>
-<h3 id="Query-context-查询上下文"><a href="#Query-context-查询上下文" class="headerlink" title="Query context 查询上下文"></a>Query context 查询上下文</h3><p>在查询上下文中，查询子句回答“此文档与该查询子句的匹配程度如何”的问题。除了确定文档是否匹配外，查询子句还计算<code>_score</code>元字段中的相关性得分。</p>
-<p>每当将查询子句传递到查询参数（例如搜索API中的查询参数）时，查询上下文即生效。</p>
-<h3 id="Filter-context-过滤上下文"><a href="#Filter-context-过滤上下文" class="headerlink" title="Filter context 过滤上下文"></a>Filter context 过滤上下文</h3><p>在过滤器上下文中，查询子句回答问题“此文档是否与此查询子句匹配？”答案是简单的“是”或“否”，即不计算分数。过滤器上下文主要用于过滤结构化数据，例如</p>
-<ul>
-<li><em>Does this <code>timestamp</code> fall into the range 2015 to 2016?</em></li>
-<li><em>Is the <code>status</code> field set to <code>&quot;published&quot;</code></em>?</li>
-</ul>
-<p>常用过滤器将由Elasticsearch自动缓存，以提高性能。</p>
-<p>每当将查询子句传递到过滤器参数（例如bool查询中的filter或must_not参数，constant_score查询中的filter参数或过滤器聚合）时，过滤器上下文即生效。</p>
-<h3 id="Example-of-query-and-filter-contexts"><a href="#Example-of-query-and-filter-contexts" class="headerlink" title="Example of query and filter contexts"></a>Example of query and filter contexts</h3><p>以下是在searchAPI的查询和过滤器上下文中使用的查询子句的示例。此查询将匹配满足以下所有条件的文档：</p>
-<ul>
-<li>The <code>title</code> field contains the word <code>search</code>.</li>
-<li>The <code>content</code> field contains the word <code>elasticsearch</code>.</li>
-<li>The <code>status</code> field contains the exact word <code>published</code>.</li>
-<li>The <code>publish_date</code> field contains a date from 1 Jan 2015 onwards.</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123; </span><br><span class="line">    &quot;bool&quot;: &#123; </span><br><span class="line">      &quot;must&quot;: [</span><br><span class="line">        &#123; &quot;match&quot;: &#123; &quot;title&quot;:   &quot;Search&quot;        &#125;&#125;,</span><br><span class="line">        &#123; &quot;match&quot;: &#123; &quot;content&quot;: &quot;Elasticsearch&quot; &#125;&#125;</span><br><span class="line">      ],</span><br><span class="line">      &quot;filter&quot;: [ </span><br><span class="line">        &#123; &quot;term&quot;:  &#123; &quot;status&quot;: &quot;published&quot; &#125;&#125;,</span><br><span class="line">        &#123; &quot;range&quot;: &#123; &quot;publish_date&quot;: &#123; &quot;gte&quot;: &quot;2015-01-01&quot; &#125;&#125;&#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>The <code>query</code> parameter indicates query context.</li>
-<li><code>bool</code>和两个<code>match</code>子句用于查询上下文，这意味着它们用于对每个文档的匹配程度进行评分。</li>
-<li><code>filter</code>参数指示过滤器上下文。其<code>term</code>和<code>range</code>子句用于过滤器上下文。它们将过滤出不匹配的文档，但不会影响匹配文档的分数。</li>
-</ul>
-<p>在查询上下文中为查询计算的分数表示为单精度浮点数；它们只有24位才能表示有效的精度。超过有效位数的分数计算将被转换为浮点数而失去精度。</p>
-<p>在查询上下文中使用查询子句来确定会影响匹配文档得分的条件（即文档匹配程度），并在过滤器上下文中使用所有其他查询子句。</p>
-<h2 id="Compound-queries-复合查询"><a href="#Compound-queries-复合查询" class="headerlink" title="Compound queries 复合查询"></a>Compound queries 复合查询</h2><p>复合查询包装其他复合查询或叶查询，以组合其结果和分数，更改其行为或从查询切换到过滤器上下文。</p>
-<p>该组中的查询是：</p>
-<ul>
-<li><p><strong><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-bool-query.html"><code>bool</code> query</a></strong></p>
-<p>默认查询，用于组合多个叶子或复合查询子句（must，should，must_not或filter子句）。must和should子句的分数组合在一起-匹配的子句越多越好-而must_not和filter子句在过滤器上下文中执行。</p>
-</li>
-<li><p><strong><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-boosting-query.html"><code>boosting</code> query</a></strong></p>
-<p>返回与肯定查询匹配的文档，但减少与否定查询匹配的文档的分数。</p>
-</li>
-<li><p><strong><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-constant-score-query.html"><code>constant_score</code> query</a></strong></p>
-<p>一个查询，它包装另一个查询，但是在过滤器上下文中执行它。所有匹配的文档都使用相同的“常量”<code> _score</code>。</p>
-</li>
-<li><p><strong><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-dis-max-query.html"><code>dis_max</code> query</a></strong></p>
-<p>一个查询，它接受多个查询，并返回与任何查询子句匹配的任何文档。当布尔查询合并所有匹配查询的分数时，dis_max查询使用单个最佳匹配查询子句的分数。</p>
-</li>
-<li><p><strong><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-function-score-query.html"><code>function_score</code> query</a></strong></p>
-<p>使用functions修改主查询返回的分数，以考虑诸如受欢迎程度，新近度，距离或使用脚本实现的自定义算法等因素。</p>
-</li>
-</ul>
-<h3 id="Boolean-query"><a href="#Boolean-query" class="headerlink" title="Boolean query"></a>Boolean query</h3><p>与文档匹配的查询，这些文档与其他查询的布尔组合匹配。布尔查询映射到Lucene BooleanQuery。它是使用一个或多个布尔子句构建的，每个子句都具有类型的出现。发生类型为：</p>
-<table>
-<thead>
-<tr>
-<th>Occur</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>must</code></td>
-<td>子句（查询）必须出现在匹配的文档中，并将有助于得分。</td>
-</tr>
-<tr>
-<td><code>filter</code></td>
-<td>子句（查询）必须出现在匹配的文档中。但是与查询分数不同的是，忽略该分数。 Filter子句在过滤器上下文中执行，这意味着计分被忽略，并且子句被视为用于缓存。</td>
-</tr>
-<tr>
-<td><code>should</code></td>
-<td>子句（查询）应出现在匹配的文档中。</td>
-</tr>
-<tr>
-<td><code>must_not</code></td>
-<td>子句（查询）不得出现在匹配的文档中。子句在过滤器上下文中执行，这意味着计分被忽略，并且子句被视为用于缓存。由于计分被忽略，因此所有文档的分数均返回0。</td>
-</tr>
-</tbody></table>
-<p>The <code>bool</code> query takes a <em>more-matches-is-better</em> approach, so the score from each matching <code>must</code> or <code>should</code> clause will be added together to provide the final <code>_score</code> for each document.</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">POST _search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;bool&quot;</span> : &#123;</span><br><span class="line">      <span class="attr">&quot;must&quot;</span> : &#123;</span><br><span class="line">        <span class="attr">&quot;term&quot;</span> : &#123; <span class="attr">&quot;user&quot;</span> : <span class="string">&quot;kimchy&quot;</span> &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">&quot;filter&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;term&quot;</span> : &#123; <span class="attr">&quot;tag&quot;</span> : <span class="string">&quot;tech&quot;</span> &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">&quot;must_not&quot;</span> : &#123;</span><br><span class="line">        <span class="attr">&quot;range&quot;</span> : &#123;</span><br><span class="line">          <span class="attr">&quot;age&quot;</span> : &#123; <span class="attr">&quot;gte&quot;</span> : <span class="number">10</span>, <span class="attr">&quot;lte&quot;</span> : <span class="number">20</span> &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">&quot;should&quot;</span> : [</span><br><span class="line">        &#123; <span class="attr">&quot;term&quot;</span> : &#123; <span class="attr">&quot;tag&quot;</span> : <span class="string">&quot;wow&quot;</span> &#125; &#125;,</span><br><span class="line">        &#123; <span class="attr">&quot;term&quot;</span> : &#123; <span class="attr">&quot;tag&quot;</span> : <span class="string">&quot;elasticsearch&quot;</span> &#125; &#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="attr">&quot;minimum_should_match&quot;</span> : <span class="number">1</span>,</span><br><span class="line">      <span class="attr">&quot;boost&quot;</span> : <span class="number">1.0</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在filter元素下指定的查询对得分没有影响-得分将返回0。得分仅受指定查询的影响。</p>
-<h3 id="Boosting-query"><a href="#Boosting-query" class="headerlink" title="Boosting query"></a>Boosting query</h3><p>返回匹配肯定查询的文档，同时降低也匹配否定查询的文档的相关性得分。</p>
-<p>您可以使用<code>boosting</code>查询来降级某些文档，而不必将它们从搜索结果中排除。</p>
-<p><strong><code>positive</code></strong></p>
-<p>（必需的查询对象）要运行的查询。返回的所有文档都必须与此查询匹配。</p>
-<p><strong><code>negative</code></strong></p>
-<p>（必需的查询对象）查询用于降低匹配文档的相关性得分。</p>
-<p>如果返回的文档与肯定查询和该查询匹配，则增强查询将计算该文档的最终相关性得分，如下所示：</p>
-<ol>
-<li>从肯定查询中获取原始的相关性分数。</li>
-<li>将分数乘以negative_boost值。</li>
-</ol>
-<p><strong><code>negative_boost</code></strong></p>
-<p>（必需，浮点数）0到1.0之间的浮点数，用于降低与否定查询匹配的文档的相关性得分。</p>
-<h4 id="Example-request"><a href="#Example-request" class="headerlink" title="Example request"></a>Example request</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;bank&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;boosting&quot;: &#123;</span><br><span class="line">      &quot;positive&quot;: &#123;</span><br><span class="line">        &quot;match&quot;: &#123;</span><br><span class="line">          &quot;state&quot;: &quot;ID&quot;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;negative&quot;: &#123;</span><br><span class="line">        &quot;range&quot;: &#123;</span><br><span class="line">          &quot;balance&quot;: &#123;</span><br><span class="line">            &quot;gte&quot;: 20000,</span><br><span class="line">            &quot;lte&quot;: 30000</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;negative_boost&quot;: 0.5</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Constant-score-query"><a href="#Constant-score-query" class="headerlink" title="Constant score query"></a>Constant score query</h3><p>包装<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-bool-query.html">过滤查询，</a>并返回每个<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-filter-context.html#relevance-scores">相关</a>文档的<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-filter-context.html#relevance-scores">相关性得分</a>等于<code>boost</code> 参数值。</p>
-<p><strong><code>filter</code></strong></p>
-<p>（必需的查询对象）<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-bool-query.html">过滤</a>要运行的<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-bool-query.html">查询</a>。返回的所有文档都必须与此查询匹配。</p>
-<p>过滤查询不计算<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-filter-context.html#relevance-scores">相关性分数</a>。为了提高性能，Elasticsearch自动缓存经常使用的过滤器查询。</p>
-<p><strong><code>boost</code></strong></p>
-<p>（可选，float）浮点数用作与查询匹配的每个文档 的恒定 <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-filter-context.html#relevance-scores">相关性得分</a><code>filter</code>。默认为<code>1.0</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;bank&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;constant_score&quot;: &#123;</span><br><span class="line">      &quot;filter&quot;: &#123;&quot;range&quot;: &#123;</span><br><span class="line">        &quot;balance&quot;: &#123;</span><br><span class="line">          &quot;gte&quot;: 20000,</span><br><span class="line">          &quot;lte&quot;: 30000</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;&#125;,</span><br><span class="line">      &quot;boost&quot;: 0.1</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Full-text-queries-全文检索"><a href="#Full-text-queries-全文检索" class="headerlink" title="Full text queries 全文检索"></a>Full text queries 全文检索</h2><p>全文查询使您可以搜索已<a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/analysis.html">分析的文本字段，</a>例如电子邮件的正文。使用在索引期间应用于字段的同一分析器来处理查询字符串。</p>
-<p>该组中的查询是：</p>
-<ul>
-<li><p><strong><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-intervals-query.html"><code>intervals</code> query</a></strong></p>
-<p>全文查询，可以对匹配项的顺序和接近度进行细粒度控制。</p>
-</li>
-<li><p><strong><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-match-query.html"><code>match</code> query</a></strong></p>
-<p>用于执行全文查询的标准查询，包括模糊匹配和短语或接近查询。</p>
-</li>
-<li><p><strong><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-match-bool-prefix-query.html"><code>match_bool_prefix</code> query</a></strong></p>
-<p>创建一个<code>bool</code>与每个词条匹配的<code>term</code>查询作为查询，但最后一个词条作为<code>prefix</code>查询匹配</p>
-</li>
-<li><p><strong><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-match-query-phrase.html"><code>match_phrase</code>query</a></strong></p>
-<p>与<code>match</code>查询类似，但用于匹配确切的短语或单词接近匹配。</p>
-</li>
-<li><p><strong><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-match-query-phrase-prefix.html"><code>match_phrase_prefix</code> query</a></strong></p>
-<p>与<code>match_phrase</code>查询类似，但是对最后一个单词进行通配符搜索。</p>
-</li>
-<li><p><strong><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-multi-match-query.html"><code>multi_match</code> query</a></strong></p>
-<p><code>match</code>查询的多字段版本。</p>
-</li>
-<li><p><strong><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-common-terms-query.html"><code>common</code> terms query</a></strong></p>
-<p>一个更专业的查询，它对不常见的单词给予更多的偏爱。</p>
-</li>
-<li><p><strong><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-query-string-query.html"><code>query_string</code>query</a></strong></p>
-<p>支持紧凑的Lucene <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-query-string-query.html#query-string-syntax">查询字符串语法</a>，允许您在单个查询字符串中指定AND | OR | NOT条件和多字段搜索。仅限于专业用户。</p>
-</li>
-<li><p><strong><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl-simple-query-string-query.html"><code>simple_query_string</code>query</a></strong></p>
-<p><code>query_string</code>适用于直接向用户公开的语法的更简单，更可靠的版本。</p>
-</li>
-</ul>
-<h3 id="Intervals-query"><a href="#Intervals-query" class="headerlink" title="Intervals query"></a>Intervals query</h3><p>根据匹配项的顺序和接近程度返回文档。</p>
-<p>间隔查询使用匹配规则，该规则由一小组定义构成。然后将这些规则应用于来自指定字段的术语。</p>
-<p>这些定义产生的最小间隔序列跨越了文本主体中的各个术语。这些间隔可以由父源进一步组合和过滤。</p>
-<h3 id="Match-query"><a href="#Match-query" class="headerlink" title="Match query"></a>Match query</h3><p>返回与提供的文本，数字，日期或布尔值匹配的文档。匹配之前分析提供的文本。</p>
-<p>匹配查询是用于执行全文搜索的标准查询，其中包括模糊匹配的选项。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">    &quot;query&quot;: &#123;</span><br><span class="line">        &quot;match&quot; : &#123;</span><br><span class="line">            &quot;message&quot; : &#123;</span><br><span class="line">                &quot;query&quot; : &quot;this is a test&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="REST-APIs"><a href="#REST-APIs" class="headerlink" title="REST APIs"></a>REST APIs</h1><h2 id="Index-APIs"><a href="#Index-APIs" class="headerlink" title="Index APIs"></a>Index APIs</h2><h3 id="Create-Index"><a href="#Create-Index" class="headerlink" title="Create Index"></a>Create Index</h3><p>创建一个新索引。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PUT &#x2F;twitter</span><br></pre></td></tr></table></figure>
-<h4 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PUT &#x2F;&lt;index&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>您可以使用create index API将新索引添加到Elasticsearch集群。创建索引时，可以指定以下内容：</p>
-<ul>
-<li>Settings  索引设置</li>
-<li>Mappings 索引中字段的映射</li>
-<li>Index aliases 索引别名</li>
-</ul>
-<h4 id="Path-parameters"><a href="#Path-parameters" class="headerlink" title="Path parameters"></a>Path parameters</h4><p>**<code>&lt;index&gt;</code>**（可选，字符串）您要创建的索引的名称。</p>
-<p>索引名称必须满足以下条件：</p>
-<ul>
-<li>Lowercase only</li>
-<li>Cannot include <code>\</code>, <code>/</code>, <code>*</code>, <code>?</code>, <code>&quot;</code>, <code>&lt;</code>, <code>&gt;</code>, <code>|</code>, <code> </code> (space character), <code>,</code>, <code>#</code></li>
-<li>Indices prior to 7.0 could contain a colon (<code>:</code>), but that’s been deprecated and won’t be supported in 7.0+</li>
-<li>Cannot start with <code>-</code>, <code>_</code>, <code>+</code></li>
-<li>Cannot be <code>.</code> or <code>..</code></li>
-<li>Cannot be longer than 255 bytes (note it is bytes, so multi-byte characters will count towards the 255 limit faster)</li>
-</ul>
-<h4 id="Query-parameters"><a href="#Query-parameters" class="headerlink" title="Query parameters"></a>Query parameters</h4><ul>
-<li><p><strong><code>include_type_name</code></strong></p>
-<p>[7.0.0] Deprecated in 7.0.0. Mapping types have been deprecated. See <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/removal-of-types.html"><em>Removal of mapping types</em></a>.(Optional, boolean) If <code>true</code>, a mapping type is expected in the body of mappings. Defaults to <code>false</code>.</p>
-</li>
-<li><p><strong><code>wait_for_active_shards</code></strong></p>
-<p>（可选，字符串）在继续操作之前必须处于活动状态的分片副本数。设置为全部或任何正整数，直到索引中的分片总数（number_of_replicas + 1）。默认值：1，主分片。</p>
-</li>
-<li><p><strong><code>timeout</code></strong></p>
-<p>（可选，时间单位）指定等待响应的时间。如果在超时到期之前未收到任何响应，则请求将失败并返回错误。默认为30秒。</p>
-</li>
-<li><p><strong><code>master_timeout</code></strong></p>
-<p>（可选，时间单位）指定等待连接到主节点的时间段。如果在超时到期之前未收到任何响应，则请求将失败并返回错误。默认为30秒。</p>
-</li>
-</ul>
-<h4 id="Request-body"><a href="#Request-body" class="headerlink" title="Request body"></a>Request body</h4><ul>
-<li><p><strong><code>aliases</code></strong></p>
-<p>(Optional, <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/indices-aliases.html">alias object</a>) Index aliases which include the index. See <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/indices-aliases.html">Update index alias</a>.</p>
-</li>
-<li><p><strong><code>mappings</code></strong></p>
-<p>(Optional, <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/mapping.html">mapping object</a>) Mapping for fields in the index. If specified, this mapping can include:</p>
-<ul>
-<li><p>Field names</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/mapping-types.html">Field datatypes</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/mapping-params.html">Mapping parameters</a></p>
-<p>See <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/mapping.html">Mapping</a>.</p>
-</li>
-</ul>
-</li>
-<li><p><strong><code>settings</code></strong></p>
-<p>(Optional, <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/index-modules.html#index-modules-settings">index setting object</a>) Configuration options for the index. See <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/index-modules.html#index-modules-settings">Index Settings</a>.</p>
-</li>
-</ul>
-<h4 id="Examples例子"><a href="#Examples例子" class="headerlink" title="Examples例子"></a>Examples例子</h4><h5 id="Index-settings索引设置"><a href="#Index-settings索引设置" class="headerlink" title="Index settings索引设置"></a>Index settings索引设置</h5><p>创建的每个索引都可以具有与之关联的特定设置，这些设置在主体中定义：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">PUT &#x2F;twitter</span><br><span class="line">&#123;</span><br><span class="line">    &quot;settings&quot; : &#123;</span><br><span class="line">        &quot;index&quot; : &#123;</span><br><span class="line">            &quot;number_of_shards&quot; : 3,  默认1</span><br><span class="line">            &quot;number_of_replicas&quot; : 2  默认1</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">PUT &#x2F;twitter</span><br><span class="line">&#123;</span><br><span class="line">    &quot;settings&quot; : &#123;</span><br><span class="line">        &quot;number_of_shards&quot; : 3,</span><br><span class="line">        &quot;number_of_replicas&quot; : 2</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="Mapping-1"><a href="#Mapping-1" class="headerlink" title="Mapping"></a>Mapping</h5><p>创建索引API允许提供映射定义：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">PUT &#x2F;test</span><br><span class="line">&#123;</span><br><span class="line">    &quot;settings&quot; : &#123;</span><br><span class="line">        &quot;number_of_shards&quot; : 1</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;mappings&quot; : &#123;</span><br><span class="line">        &quot;properties&quot; : &#123;</span><br><span class="line">            &quot;field1&quot; : &#123; &quot;type&quot; : &quot;text&quot; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="Aliases"><a href="#Aliases" class="headerlink" title="Aliases"></a>Aliases</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">PUT &#x2F;test</span><br><span class="line">&#123;</span><br><span class="line">    &quot;aliases&quot; : &#123;</span><br><span class="line">        &quot;alias_1&quot; : &#123;&#125;,</span><br><span class="line">        &quot;alias_2&quot; : &#123;</span><br><span class="line">            &quot;filter&quot; : &#123;</span><br><span class="line">                &quot;term&quot; : &#123;&quot;user&quot; : &quot;kimchy&quot; &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;routing&quot; : &quot;kimchy&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>默认情况下，索引创建仅在每个分片的主副本已启动或请求超时时才向客户端返回响应。索引创建响应将指示发生了什么：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;acknowledged&quot;: true,</span><br><span class="line">    &quot;shards_acknowledged&quot;: true,</span><br><span class="line">    &quot;index&quot;: &quot;test&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>acknowledged</code> 指示索引是否在集群中成功创建, 而<code>shards_acknowledged</code> 指示在超时之前是否为索引中的每个分片启动了必要数量的分片副本。请注意，<code>acknowledged</code> 或<code>shards_acknowledged</code>仍然可能为假，但索引创建成功。 这些值仅表示操作是否在超时之前完成。如果accepted为false，那么在使用新创建的索引更新集群状态之前，我们会超时，但是可能很快就会创建它。 If <code>shards_acknowledged</code> is <code>false</code>, then we timed out before the requisite number of shards were started (by default just the primaries), even if the cluster state was successfully updated to reflect the newly created index (i.e. <code>acknowledged=true</code>).</p>
-<p>我们可以通过索引设置index.write.wait_for_active_shards更改仅等待主分片启动的默认设置</p>
-<h2 id="Search-APIs"><a href="#Search-APIs" class="headerlink" title="Search APIs"></a>Search APIs</h2><p>Most search APIs are <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/search-search.html#search-multi-index">multi-index</a>, with the exception of the <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/search-explain.html">Explain API</a> endpoints.</p>
-<h3 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h3><p>返回与请求中定义的查询匹配的搜索命中。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;twitter&#x2F;_search?q&#x3D;tag:wow</span><br></pre></td></tr></table></figure>
-<h4 id="Request-1"><a href="#Request-1" class="headerlink" title="Request"></a>Request</h4><p><code>GET /&lt;index&gt;/_search</code></p>
-<p><code>POST /&lt;index&gt;/_search</code></p>
-<p><code>GET /_search</code></p>
-<p><code>POST /_search</code></p>
-<h4 id="Description-1"><a href="#Description-1" class="headerlink" title="Description"></a>Description</h4><p>允许您执行搜索查询并获取与查询匹配的搜索命中。可以使用简单查询字符串作为参数来提供查询，也可以使用请求正文来提供查询。 <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/search-uri-request.html">query string as a parameter</a>, or using a <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/search-request-body.html">request body</a>.</p>
-<p>为确保快速响应，如果一个或多个分片失败，搜索API将以部分结果响应。有关更多信息，请参见分片故障。</p>
-<h4 id="Path-parameters-1"><a href="#Path-parameters-1" class="headerlink" title="Path parameters"></a>Path parameters</h4><p>**<code>&lt;index&gt;</code>**（可选，字符串）索引名称的逗号分隔列表或通配符表达式，用于限制请求。</p>
-<h4 id="Query-parameters-1"><a href="#Query-parameters-1" class="headerlink" title="Query parameters"></a>Query parameters</h4><p><strong><code>allow_no_indices</code></strong></p>
-<p>（可选，布尔值）如果为true，则如果通配符表达式或_all值仅检索丢失或闭合的索引，则请求不会返回错误。</p>
-<p>此参数还适用于指向别名缺失或封闭索引的索引别名。</p>
-<p><strong><code>allow_partial_search_results</code></strong></p>
-<p>（可选，布尔值）指示如果部分搜索失败或超时，是否应返回错误。默认为true。</p>
-<h4 id="Request-body-1"><a href="#Request-body-1" class="headerlink" title="Request body"></a>Request body</h4><p><strong><code>query</code></strong></p>
-<p>(Optional, <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl.html">query object</a>) Defines the search definition using the <a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/query-dsl.html">Query DSL</a>.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1683,7 +1378,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
